@@ -1,0 +1,74 @@
+import CartItem from "./CartItem";
+
+const Cart = ({ cart, addToCart, removeFromCart }) => {
+  return (
+    //how to do an if statement? -?> use terary! (?)
+    <div>
+      {cart.length === 0 ? (
+        <h2> your cart is empty</h2>
+      ) : (
+        <div>
+          <h3>Your Cart:</h3>
+          {cart.map((cartItem) => {
+            return (
+              <div key={cartItem.id}>
+                <CartItem
+                  cartItem={cartItem}
+                  addToCart={addToCart}
+                  removeFromCart={removeFromCart}
+                />
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
+export default Cart;
+
+/*
+const Cart = ({ cart, addToCart, removeFromCart }) => {
+  return (
+    <div>
+      {cart.length === 0 ? (
+        <h3>Your cart is empty</h3>
+      ) : (
+        <div>
+          <h3>Your Cart</h3>
+          {cart.map((cartItem) => {
+            return (
+              <div key={cartItem.id}>
+                <li>
+                  {cartItem.name}
+
+                  <div>
+                    Quantity: {cartItem.quantity}
+                    <button
+                      onClick={() => {
+                        addToCart(cartItem);
+                      }}
+                    >
+                      +
+                    </button>
+                    <button
+                      onClick={() => {
+                        removeFromCart(cartItem);
+                      }}
+                    >
+                      -
+                    </button>
+                  </div>
+                </li>
+                <hr />
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Cart;
+*/
